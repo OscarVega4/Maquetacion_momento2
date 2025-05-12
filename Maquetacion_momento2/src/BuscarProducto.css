@@ -1,0 +1,43 @@
+.contenedor {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100vh;
+  background-color: white;
+}
+
+.card {
+  border: 2px solid black;
+  border-radius: 15px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  background-color: white; 
+}
+
+.input-producto {
+  width: 250px;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: 1px solid black;
+}
+
+.boton-buscar {
+  padding: 10px 20px;
+  border: 2px solid black;
+  background: white;
+  cursor: pointer;
+}
+
+.link-cliente {
+  color: blue;
+  text-decoration: underline;
+  font-size: 14px;
+}
+
+.titulo {
+  font-size: 24px;
+}
