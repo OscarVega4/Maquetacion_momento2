@@ -40,4 +40,63 @@
 
 .titulo {
   font-size: 24px;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+/* Nueva sección: vista de curso seleccionado */
+.producto-detalle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  margin-top: 2rem;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.producto-detalle img {
+  width: 250px;
+  height: auto;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+}
+
+.producto-detalle h3 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.descripcion {
+  list-style-type: disc;
+  padding-left: 1rem;
+  text-align: left;
+}
+
+.descripcion li {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Botón "Regresar a cursos" o "Cerrar sesión" */
+.boton-regresar {
+  margin-top: 2rem;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #ffffff;
+  border: 2px solid #333;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.boton-regresar:hover {
+  background-color: #e6e6e6;
 }

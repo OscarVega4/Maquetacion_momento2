@@ -5,6 +5,7 @@
   background-color: white;
   padding: 2rem;
   min-height: 100vh;
+  padding-top: 30px; /* Añade un poco de espacio en la parte superior */
 }
 
 .productos-grid {
@@ -25,6 +26,10 @@
   text-align: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .producto-item:hover {
@@ -36,6 +41,7 @@
   height: 200px;
   object-fit: cover;
   border-radius: 10px;
+  margin-bottom: 0px; /* Espacio debajo de la imagen */
 }
 
 .ver-producto {
@@ -60,7 +66,7 @@
   right: 20px;
   padding: 10px 20px;
   background-color: #030303;
-  color: black;
+  color: white; /* Cambié el color a blanco para que siempre sea blanco */
   border: none;
   border-radius: 5px;
   text-decoration: none;
@@ -70,5 +76,5 @@
 
 .boton-regresar:hover {
   background-color: #0d0d0e;
-  color: white;
+  color: white; /* Esto asegura que el color sigue siendo blanco incluso al pasar el puntero */
 }

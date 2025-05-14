@@ -1,36 +1,102 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import './Productos.css';
 
-import imagen1 from './assets/imagen1.jpg';
-import imagen2 from './assets/imagen2.jpg';
-import imagen3 from './assets/imagen3.jpg';
-import imagen4 from './assets/imagen4.jpg';
-import imagen5 from './assets/imagen5.jpg';
-import imagen6 from './assets/imagen6.jpg';
+import imagen7 from './assets/imagen7.avif';  // Aquí se importa la imagen
 
 const productos = [
-  { id: 1, src: imagen1, alt: 'Producto 1' },
-  { id: 2, src: imagen2, alt: 'Producto 2' },
-  { id: 3, src: imagen3, alt: 'Producto 3' },
-  { id: 4, src: imagen4, alt: 'Producto 4' },
-  { id: 5, src: imagen5, alt: 'Producto 5' },
-  { id: 6, src: imagen6, alt: 'Producto 6' },
+  { 
+    id: 1, 
+    src: imagen7, 
+    alt: 'Curso 1', 
+    cursos: ['Lógica de programación'] 
+  },
+  { 
+    id: 2, 
+    src: imagen7, 
+    alt: 'Curso 2', 
+    cursos: ['JavaScript'] 
+  },
+  { 
+    id: 3, 
+    src: imagen7, 
+    alt: 'Curso 3', 
+    cursos: ['Python'] 
+  },
+  { 
+    id: 4, 
+    src: imagen7, 
+    alt: 'Curso 4', 
+    cursos: ['Java'] 
+  },
+  { 
+    id: 5, 
+    src: imagen7, 
+    alt: 'Curso 5', 
+    cursos: ['C#'] 
+  },
+  { 
+    id: 6, 
+    src: imagen7, 
+    alt: 'Curso 6', 
+    cursos: ['PHP'] 
+  },
 ];
 
 function Productos() {
+  const navigate = useNavigate();
+  const { id } = useParams(); // Obtener el ID del curso desde la URL
+
+  const cursoSeleccionado = productos.find((producto) => producto.id === parseInt(id));
+
+  const verCurso = (id) => {
+    navigate(`/producto/${id}`);  // Redirige a la página de detalles del curso
+  };
+
+  const cerrarSesion = () => {
+    navigate('/');  // Redirige a la vista de BuscarCliente (inicio de sesión)
+  };
+
   return (
-    <div className="productos-container">
+    <div className={`productos-container ${id ? 'detalle-curso' : ''}`}>
+      <h2 className="titulo">Cursos disponibles</h2>
       <div className="productos-grid">
-        {productos.map((producto) => (
-          <div key={producto.id} className="producto-item">
-            <img src={producto.src} alt={producto.alt} className="producto-imagen" />
-            <button className="ver-producto">Ver</button>
+        {id ? (
+          <div className="producto-detalle">
+            <img src={cursoSeleccionado?.src} alt={cursoSeleccionado?.alt} />
+            <h3>{cursoSeleccionado?.alt}</h3>
+            <ul className="descripcion">
+              {cursoSeleccionado?.cursos.map((curso, index) => (
+                <li key={index}>{curso}</li>
+              ))}
+            </ul>
+            <button className="boton-regresar" onClick={() => navigate('/productos')}>
+              Regresar a cursos
+            </button>
           </div>
-        ))}
+        ) : (
+          productos.map((producto) => (
+            <div key={producto.id} className="producto-item">
+              <img src={producto.src} alt={producto.alt} className="producto-imagen" />
+              <ul className="descripcion">
+                {producto.cursos.map((curso, index) => (
+                  <li key={index}>{curso}</li>
+                ))}
+              </ul>
+              <button className="ver-producto" onClick={() => verCurso(producto.id)}>
+                Ver
+              </button>
+            </div>
+          ))
+        )}
       </div>
 
-      <Link to="/buscar-producto" className="boton-regresar">Regresar</Link>
+      {/* Botón de cerrar sesión */}
+      {!id && (
+        <button className="cerrar-sesion" onClick={cerrarSesion}>
+          Cerrar sesión
+        </button>
+      )}
     </div>
   );
 }
